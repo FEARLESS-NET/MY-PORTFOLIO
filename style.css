@@ -1,0 +1,217 @@
+/* =====================================================
+   1. RANGLAR VA SHRIFTLAR (o'zgartirish shu yerdan)
+   ===================================================== */
+:root {
+  color-scheme: dark;
+  --bg: #030a1b;
+  --bg-2: #08173a;
+  --ink: #e9f2ff;
+  --muted: #9db4d6;
+  --line: rgba(92, 168, 255, 0.26);
+  --elec: #46b8ff;        /* asosiy elektr rang */
+  --elec-hi: #a6e0ff;     /* yorqin variant */
+  --violet: #7b8cff;
+  --warm: #ffd27a;
+  --on-elec: #021226;
+  --glass: rgba(6, 17, 40, 0.74);
+  --glass-2: rgba(10, 26, 58, 0.6);
+
+  /* kod oynasi ranglari */
+  --code-bg: #040d20;
+  --code-bar: #0a1a38;
+  --code-fg: #d6e6fb;
+  --c-key: #6fe0ff;
+  --c-str: #ffd27a;
+  --c-prop: #a9b9ff;
+  --c-com: #5f7ca9;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* =====================================================
+   2. UMUMIY SOZLAMALAR
+   ===================================================== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(40, 120, 255, .32), transparent 62%),
+    radial-gradient(900px 600px at 6% 38%, rgba(70, 90, 255, .20), transparent 60%),
+    radial-gradient(1000px 700px at 90% 85%, rgba(30, 150, 255, .18), transparent 62%),
+    linear-gradient(180deg, var(--bg), var(--bg-2) 55%, var(--bg));
+  background-color: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 var(--font-body);
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--elec-hi); outline-offset: 3px; border-radius: 4px; }
+
+/* chaqmoq canvas'i hamma narsaning orqasida turadi */
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.page { position: relative; z-index: 1; }
+
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.mono { font-family: var(--font-mono); }
+
+/* =====================================================
+   3. YUQORI MENYU (sahifa bilan birga yuradi)
+   ===================================================== */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(3, 10, 27, .55);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; }
+.logo { font: 500 .95rem var(--font-mono); text-decoration: none; }
+.logo b { color: var(--elec); font-weight: 500; text-shadow: 0 0 14px rgba(70, 184, 255, .85); }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: .95rem; }
+.nav a { text-decoration: none; color: var(--muted); transition: color .2s, text-shadow .2s; }
+.nav a:hover { color: var(--elec-hi); text-shadow: 0 0 12px rgba(70, 184, 255, .8); }
+
+/* =====================================================
+   4. BOSH QISM (HERO)
+   ===================================================== */
+.hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 40px; align-items: center; padding-block: 56px 90px; }
+.eyebrow { font: .95rem var(--font-mono); color: var(--elec); margin: 0 0 14px; }
+h1 { font: 800 clamp(2.7rem, 9.5vw, 6.2rem)/.94 var(--font-display); letter-spacing: -.035em; margin: 0 0 22px; text-wrap: balance; }
+h1 span { display: block; }
+h1 .second { color: var(--elec-hi); text-shadow: 0 0 22px rgba(70, 184, 255, .9), 0 0 70px rgba(60, 130, 255, .6); }
+.lead { font-size: 1.15rem; max-width: 34em; margin: 0 0 28px; color: var(--muted); }
+.lead strong { color: var(--ink); font-weight: 600; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* tugmalar */
+.btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--elec); cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--elec); color: var(--on-elec); box-shadow: 0 0 26px rgba(70, 184, 255, .5); }
+.btn.primary:hover { box-shadow: 0 0 42px rgba(70, 184, 255, .85); }
+.btn.ghost { background: rgba(70, 184, 255, .07); color: var(--elec-hi); }
+.btn.ghost:hover { background: rgba(70, 184, 255, .18); }
+
+/* rasm va aylanuvchi elektr halqa */
+.portrait { justify-self: center; width: min(100%, 340px); aspect-ratio: 1; position: relative; border-radius: 50%; }
+.portrait::before { content: ""; position: absolute; inset: -9px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--elec-hi), transparent 22%, var(--violet) 48%, transparent 70%, var(--elec) 88%, var(--elec-hi));
+  animation: spin 4s linear infinite; filter: drop-shadow(0 0 16px rgba(70, 184, 255, .95)); }
+.portrait::after { content: ""; position: absolute; inset: -34px; border-radius: 50%; box-shadow: 0 0 110px 14px rgba(60, 140, 255, .42); pointer-events: none; animation: pulse 3s ease-in-out infinite; }
+.photo { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #06142e; border: 5px solid var(--bg); z-index: 1; }
+.photo img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; }
+.initials { position: absolute; inset: 0; display: grid; place-items: center; font: 800 5rem var(--font-display); color: var(--elec-hi); text-shadow: 0 0 30px var(--elec); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 50% { opacity: .55; } }
+
+/* =====================================================
+   5. BO'LIMLAR UMUMIY
+   ===================================================== */
+section { padding-block: 64px; }
+h2 { font: 800 clamp(1.8rem, 5vw, 2.7rem)/1.05 var(--font-display); letter-spacing: -.025em; margin: 0 0 28px; text-wrap: balance; text-shadow: 0 0 30px rgba(70, 150, 255, .4); }
+.glass { background: var(--glass); border: 1px solid var(--line); border-radius: 12px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: border-color .25s, box-shadow .25s; }
+.glass:hover { border-color: rgba(120, 200, 255, .65); box-shadow: 0 0 34px -4px rgba(70, 170, 255, .5); }
+
+/* =====================================================
+   6. "MEN HAQIMDA" (kod oynasi ko'rinishida)
+   ===================================================== */
+.win { background: var(--code-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 0 70px -10px rgba(40, 130, 255, .5); }
+.bar { display: flex; align-items: center; gap: 8px; background: var(--code-bar); padding: 10px 14px; }
+.bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+.bar i:nth-child(1) { background: #ff7a6b; }
+.bar i:nth-child(2) { background: #ffc857; }
+.bar i:nth-child(3) { background: #5be0a6; }
+.tab { margin-left: 14px; font: .82rem var(--font-mono); color: var(--code-fg); padding: 4px 12px; background: var(--code-bg); border-radius: 6px 6px 0 0; }
+.readme { padding: 28px 32px 34px; color: var(--code-fg); }
+.readme h3 { font: 700 1.5rem var(--font-display); letter-spacing: -.02em; margin: 30px 0 10px; color: var(--ink); }
+.readme h3::before { content: "## "; font: 400 .85em var(--font-mono); color: var(--c-com); }
+.readme h3.h1 { font-size: 2rem; margin-top: 0; }
+.readme h3.h1::before { content: "# "; }
+.readme blockquote { margin: 0 0 4px; padding-left: 14px; border-left: 3px solid var(--elec); font: .9rem var(--font-mono); color: var(--muted); }
+.readme p { margin: 0 0 12px; max-width: 72ch; }
+.readme ul { margin: 0 0 12px; padding: 0; list-style: none; max-width: 72ch; }
+.readme li { padding-left: 1.4em; position: relative; margin-bottom: 8px; }
+.readme li::before { content: "-"; position: absolute; left: 0; color: var(--c-key); font-family: var(--font-mono); }
+.readme strong { color: var(--elec-hi); font-weight: 600; }
+.readme code { font-family: var(--font-mono); color: var(--c-str); font-size: .92em; }
+.readme a { color: var(--elec-hi); }
+
+/* =====================================================
+   7. KO'NIKMALAR
+   ===================================================== */
+.skills { display: grid; border-top: 1px solid var(--line); margin: 0; }
+.skill-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); align-items: start; }
+.skill-row dt { font: .9rem var(--font-mono); color: var(--muted); padding-top: 5px; }
+.skill-row dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font: .88rem var(--font-mono); padding: 5px 12px; border: 1px solid var(--line); background: var(--glass-2); border-radius: 5px; transition: border-color .2s, box-shadow .2s, color .2s; }
+.tag:hover { border-color: var(--elec); color: var(--elec-hi); box-shadow: 0 0 16px rgba(70, 184, 255, .55); }
+.tag.soft { color: var(--muted); border-style: dashed; }
+
+/* =====================================================
+   8. LOYIHALAR
+   ===================================================== */
+.sites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.site { display: flex; flex-direction: column; overflow: hidden; }
+.chrome { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: rgba(10, 26, 58, .9); border-bottom: 1px solid var(--line); }
+.chrome i { width: 9px; height: 9px; border-radius: 50%; background: #2a4d80; display: block; flex: none; }
+.chrome span { margin-left: 8px; font: .78rem var(--font-mono); color: var(--muted); overflow-wrap: anywhere; min-width: 0; }
+.site-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.badge { align-self: flex-start; font: .78rem var(--font-mono); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--elec); color: var(--elec-hi); background: rgba(70, 184, 255, .1); }
+.badge.wip { border-color: var(--warm); color: var(--warm); background: rgba(255, 210, 122, .08); }
+.site h3, .project h3 { font: 700 1.7rem var(--font-display); margin: 0; letter-spacing: -.02em; }
+.site p { margin: 0; color: var(--muted); }
+.site .btn { align-self: flex-start; margin-top: auto; }
+
+.project { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 32px; padding: 28px; margin-top: 24px; }
+.project h3 { margin-bottom: 10px; }
+.project p { margin: 0 0 16px; color: var(--muted); }
+.project code { font-family: var(--font-mono); color: var(--c-str); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tree { font: .88rem/1.8 var(--font-mono); background: var(--code-bg); color: var(--code-fg); border-radius: 8px; border: 1px solid var(--line); padding: 16px 18px; margin: 0; white-space: pre; overflow-x: auto; align-self: start; }
+.tree .d { color: var(--c-prop); }
+.tree .f { color: var(--c-str); }
+.more { margin: 22px 0 0; color: var(--muted); }
+.more a { color: var(--elec-hi); font-weight: 600; }
+
+/* =====================================================
+   9. TA'LIM VA ALOQA
+   ===================================================== */
+.edu { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; padding-block: 18px; border-block: 1px solid var(--line); }
+.edu .when { font: .9rem var(--font-mono); color: var(--muted); padding-top: 5px; }
+.edu h3 { margin: 0 0 4px; font: 700 1.35rem var(--font-display); }
+.edu p { margin: 0; color: var(--muted); }
+
+.contact-list { display: grid; gap: 12px; max-width: 640px; }
+.contact-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; flex-wrap: wrap; }
+.k2 { font: .8rem var(--font-mono); color: var(--muted); display: block; }
+.v { font-weight: 600; overflow-wrap: anywhere; text-decoration: none; }
+a.v:hover { color: var(--elec-hi); }
+.copy { font: .78rem var(--font-mono); color: var(--elec-hi); background: transparent; border: 1px solid var(--elec); border-radius: 6px; padding: 6px 12px; cursor: pointer; text-decoration: none; transition: background .2s, box-shadow .2s; }
+.copy:hover { background: rgba(70, 184, 255, .18); box-shadow: 0 0 16px rgba(70, 184, 255, .5); }
+
+footer { border-top: 1px solid var(--line); padding-block: 26px calc(40px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: .9rem; }
+.foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* =====================================================
+   10. TELEFON UCHUN
+   ===================================================== */
+@media (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 28px 56px; }
+  .portrait { width: min(78%, 280px); justify-self: start; margin-left: 10px; }
+  .sites, .project { grid-template-columns: minmax(0, 1fr); }
+  .project { padding: 20px; }
+  .readme { padding: 20px 18px 24px; }
+  .skill-row, .edu { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .nav { gap: 14px; font-size: .88rem; }
+  section { padding-block: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .portrait::before, .portrait::after { animation: none; }
+}

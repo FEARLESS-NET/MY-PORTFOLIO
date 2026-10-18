@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mirzohid Bahtiyorov | Full-stack dasturchi</title>
+  <meta name="description" content="Mirzohid Bahtiyorov: React, Node.js va Express.js bilan ishlaydigan full-stack dasturchi, Toshkent.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fondagi chaqmoq animatsiyasi (script.js chizadi) -->
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div class="page">
+
+  <!-- ========== YUQORI MENYU ========== -->
+  <header class="topbar">
+    <div class="wrap top">
+      <a class="logo" href="#top">&lt;<b>mirzohid</b> /&gt;</a>
+      <nav class="nav" aria-label="Bo'limlar">
+        <a href="#kod">Men haqimda</a>
+        <a href="#ko-nikma">Ko'nikmalar</a>
+        <a href="#loyiha">Loyihalar</a>
+        <a href="#aloqa">Aloqa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== BOSH QISM (HERO) ========== -->
+    <section class="wrap hero" id="top">
+      <div>
+        <p class="eyebrow">// salom, men</p>
+        <h1><span>Mirzohid</span><span class="second">Bahtiyorov</span></h1>
+        <p class="lead"><strong>Frontend va Backend</strong> yo'nalishida ishlaydigan full-stack dasturchi. Toshkentdaman, 2 yillik amaliy tajribam bor: React.js bilan interfeys, Node.js va Express.js bilan server yozaman, tayyor loyihani Render, Netlify yoki Vercel'ga joylayman.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/FEARLESS-NET" target="_blank" rel="noopener">GitHub profilim</a>
+          <a class="btn ghost" href="#aloqa">Bog'lanish</a>
+        </div>
+      </div>
+
+      <!-- Rasm: photo.jpg fayli shu papkada bo'lishi kerak. Bo'lmasa "MB" harflari ko'rinadi -->
+      <div class="portrait">
+        <div class="photo">
+          <span class="initials">MB</span>
+          <img src="photo.jpg" alt="Mirzohid Bahtiyorov" width="640" height="640" onerror="this.remove()">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MEN HAQIMDA ========== -->
+    <section id="kod">
+      <div class="wrap">
+        <h2>Men haqimda</h2>
+        <div class="win">
+          <div class="bar"><i></i><i></i><i></i><span class="tab">README.md</span></div>
+          <article class="readme">
+            <h3 class="h1">Mirzohid Bahtiyorov</h3>
+            <blockquote>Full-stack dasturchi &middot; Frontend va Backend &middot; Toshkent</blockquote>
+
+            <h3>Men kimman</h3>
+            <p>Men Toshkentda yashaydigan full-stack dasturchiman. 2 yildan beri veb-loyihalarning ham ko'rinadigan qismini (frontend), ham ichki qismini (backend) o'zim yozaman. Asosiy tilim <code>JavaScript</code>. Dasturlash bo'yicha <strong>Coddy Camp</strong> kursida 2024&ndash;2026 yillarda o'qidim va 2026-yilda sertifikat oldim.</p>
+
+            <h3>Nima bilan ishlayman</h3>
+            <ul>
+              <li><strong>Frontend:</strong> React.js bilan interfeys yarataman. Next.js bo'yicha asosiy bilimim bor.</li>
+              <li><strong>Backend:</strong> Node.js va Express.js bilan server yozaman, ma'lumotlarni MongoDB'da saqlayman.</li>
+              <li><strong>Deploy:</strong> tayyor loyihani Render, Netlify va Vercel'ga joylab, ishga tushiraman.</li>
+              <li><strong>Asboblar:</strong> Git va GitHub. AI vositalaridan kod yozish va xatolarni topishda yordamchi sifatida foydalanaman.</li>
+            </ul>
+
+            <h3>Nima yaratganman</h3>
+            <ul>
+              <li><strong>OLIMJON G'</strong>: restoran uchun, mijoz buyurtmasi bilan yaratgan veb-saytim.</li>
+              <li><strong>Nexora</strong>: dasturchilar va kompaniyalarni bog'lashga mo'ljallangan platforma. O'zim uchun yaratganman va hali ustida ishlayapman.</li>
+              <li><strong>backend</strong>: Node.js va Express.js'da yozilgan server. Kodni config, models, controllers va routes papkalariga bo'lib, tartibli yozganman.</li>
+            </ul>
+
+            <h3>Qanday ishlayman</h3>
+            <p>Loyihani boshidan oxirigacha o'zim olib chiqaman: kodni yozaman, serverga joylayman va ishlab turganini tekshiraman. Mijoz uchun ishlagan tajribam bor, shuning uchun natija buyurtmachiga ishlashi kerakligini bilaman. O'z loyiham Nexora esa yangi narsalarni sinab ko'rish joyim.</p>
+
+            <h3>Hozir</h3>
+            <p>Nexora ustida ishlayapman va full-stack bo'yicha bilimimni chuqurlashtiryapman. Yangi jamoada real loyihalarda ishlab, tajribamni oshirmoqchiman. <a href="#aloqa">Bog'lanish uchun pastga qarang.</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== KO'NIKMALAR ========== -->
+    <section id="ko-nikma">
+      <div class="wrap">
+        <h2>Bilganlarim</h2>
+        <dl class="skills">
+          <div class="skill-row"><dt>til</dt><dd><span class="tag">JavaScript</span></dd></div>
+          <div class="skill-row"><dt>frontend</dt><dd><span class="tag">React.js</span><span class="tag soft">Next.js (asosiy daraja)</span></dd></div>
+          <div class="skill-row"><dt>backend</dt><dd><span class="tag">Node.js</span><span class="tag">Express.js</span></dd></div>
+          <div class="skill-row"><dt>ma'lumotlar bazasi</dt><dd><span class="tag">MongoDB</span></dd></div>
+          <div class="skill-row"><dt>deploy</dt><dd><span class="tag">Render</span><span class="tag">Netlify</span><span class="tag">Vercel</span></dd></div>
+          <div class="skill-row"><dt>asboblar</dt><dd><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">AI vositalari</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========== LOYIHALAR ========== -->
+    <section id="loyiha">
+      <div class="wrap">
+        <h2>Yaratgan loyihalarim</h2>
+
+        <div class="sites">
+          <article class="glass site">
+            <div class="chrome"><i></i><i></i><i></i><span>qrcode-4-hqdm.onrender.com</span></div>
+            <div class="site-body">
+              <span class="badge">mijoz uchun</span>
+              <h3>OLIMJON G'</h3>
+              <p>Restoran uchun yaratgan veb-saytim. Buyurtmachi restoran bo'lgan, sayt Render'da joylashtirilgan va ishlab turibdi.</p>
+              <a class="btn primary" href="https://qrcode-4-hqdm.onrender.com" target="_blank" rel="noopener">Saytni ochish</a>
+            </div>
+          </article>
+
+          <article class="glass site">
+            <div class="chrome"><i></i><i></i><i></i><span>nexora-front.onrender.com</span></div>
+            <div class="site-body">
+              <span class="badge wip">o'z loyiham · ustida ishlayapman</span>
+              <h3>Nexora</h3>
+              <p>Dasturchilarni kompaniyalar bilan bog'lashga mo'ljallangan platforma: ish e'lonlari, rezyume yaratish va loyihalar lentasi. O'zim yuritish va rivojlantirish uchun yaratganman, hali tugamagan.</p>
+              <a class="btn primary" href="https://nexora-front.onrender.com" target="_blank" rel="noopener">Saytni ochish</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="glass project">
+          <div>
+            <h3>backend</h3>
+            <p>Node.js va Express.js'da yozilgan server. Kod config, models, controllers va routes papkalariga bo'lingan (MVC tuzilmasi), maxfiy sozlamalar <code>.env</code> faylida turadi. Repozitoriyda 17 ta commit bor.</p>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">JavaScript</span></div>
+            <a class="btn ghost" href="https://github.com/FEARLESS-NET/backend" target="_blank" rel="noopener">Kodni ko'rish</a>
+          </div>
+<pre class="tree"><span class="d">backend/</span>
+├─ <span class="d">config/</span>
+├─ <span class="d">controllers/</span>
+├─ <span class="d">models/</span>
+├─ <span class="d">routes/</span>
+├─ <span class="f">server.js</span>
+└─ <span class="f">package.json</span></pre>
+        </div>
+        <p class="more">GitHub profilimda jami 16 ta repozitoriy bor: <a href="https://github.com/FEARLESS-NET" target="_blank" rel="noopener">github.com/FEARLESS-NET</a></p>
+      </div>
+    </section>
+
+    <!-- ========== TA'LIM ========== -->
+    <section id="talim">
+      <div class="wrap">
+        <h2>O'qiganim</h2>
+        <div class="edu">
+          <div class="when">2024 – 2026</div>
+          <div>
+            <h3>Coddy Camp</h3>
+            <p>Dasturlash bo'yicha o'quv kursi. Sertifikat 2026-yilda olingan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ALOQA ========== -->
+    <section id="aloqa">
+      <div class="wrap">
+        <h2>Keling, gaplashamiz</h2>
+        <div class="contact-list">
+          <div class="glass contact-item">
+            <div><span class="k2">email</span><span class="v">mirzohidbahtiyorov5@gmail.com</span></div>
+            <button class="copy" type="button" data-copy="mirzohidbahtiyorov5@gmail.com">nusxa olish</button>
+          </div>
+          <div class="glass contact-item">
+            <div><span class="k2">telefon</span><span class="v">+998 88 870 66 20</span></div>
+            <button class="copy" type="button" data-copy="+998888706620">nusxa olish</button>
+          </div>
+          <div class="glass contact-item">
+            <div><span class="k2">instagram</span><a class="v" href="https://www.instagram.com/zoxid__dev" target="_blank" rel="noopener">@zoxid__dev</a></div>
+            <a class="copy" href="https://www.instagram.com/zoxid__dev" target="_blank" rel="noopener">ochish</a>
+          </div>
+          <div class="glass contact-item">
+            <div><span class="k2">github</span><a class="v" href="https://github.com/FEARLESS-NET" target="_blank" rel="noopener">github.com/FEARLESS-NET</a></div>
+            <a class="copy" href="https://github.com/FEARLESS-NET" target="_blank" rel="noopener">ochish</a>
+          </div>
+          <div class="glass contact-item">
+            <div><span class="k2">shahar</span><span class="v">Toshkent</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© 2026 Mirzohid Bahtiyorov</span>
+      <span class="mono">Toshkent</span>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
